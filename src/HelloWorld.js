@@ -9,17 +9,27 @@ class HelloWorld extends Component {
       index: 0,
       text: {
         0: this.zero(),
-        1: 'tbd'
+        1: "I've been pushing pixels perfectly since 2007 for startups, celebrities & digital agencies"
       }
     };
     this.nextPage = this.nextPage.bind(this);
   }
   
   zero() {
+    const text = [
+      'Web Apps',
+      'Websites',
+      'Internal Tools',
+      'Landing Pages',
+      'Microsites',
+      'Portfolio Sites',
+      'Chatbots'
+    ];
+
     return (
       <Fragment>
         I ♥︎ building
-        <EntityCycler />
+        <EntityCycler text={text} />
         and care about
         <br />
         user experience

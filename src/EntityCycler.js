@@ -6,12 +6,7 @@ class EntityCycler extends Component {
     super(props);
     this.state = {
       index: 0,
-      text: this.shuffleText([
-        'Apps',
-        'Websites',
-        'Tools',
-        'Landing Pages'
-      ])
+      text: this.shuffleText(props.text)
     }
   }
   
