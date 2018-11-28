@@ -5,39 +5,38 @@ class EntityCycler extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: [
+      index: 0,
+      text: this.shuffleText([
         'Apps',
         'Websites',
         'Tools',
         'Landing Pages'
-      ]
+      ])
     }
-
-    this.state.index = this.getRandomInt(this.state.text.length);
+  }
+  
+  componentDidMount() {
+    console.log(this.state.text);
   }
   
   getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
   
-  cycleThruText() {
-    const start = this.state.index;
+  shuffleText(text) {
+    const start = this.getRandomInt(text.length);
     //////////////////////////////////////////
     // Illusion of random of circular order //
     //////////////////////////////////////////
     // make a copy of state.text
-    let copy = [...this.state.text];
+    let copy = [...text];
     // create new array from start index until end of copy
     let stack = copy.splice(start);
     // push all items before starting index onto end of stack array
     stack.push(...copy);
     stack.reverse();
     ///////////////////////////////////////////////////////////////
-
-    while(stack.length) {
-      
-    }
-    
+    return stack;
   }
   
   currentText(specificIndex) {
