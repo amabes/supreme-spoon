@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import './EntityCycler.css';
+import './EntityCycler.css';
 
 class EntityCycler extends Component {
   render() {
