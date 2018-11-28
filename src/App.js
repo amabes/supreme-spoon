@@ -1,25 +1,41 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component, Fragment } from 'react';
+// import logo from './logo.svg';
+import One from './One';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      index: 0,
+      text: {
+        0: this.zero(),
+        1: 'and care about user experience'
+      }
+    };
+    this.nextPage = this.nextPage.bind(this);
+  }
+  
+  zero() {
+    return (
+      <Fragment>
+        I love building things <a href="https://google.com">test</a>
+      </Fragment>
+    );
+  }
+  
+  nextPage() {
+    this.setState(state => ({
+      index: this.state.index += 1
+    }));
+    
+    console.log(this.state.index);
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <One text={this.state.text[this.state.index]} nextText={this.nextPage} />
       </div>
     );
   }
