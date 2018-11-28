@@ -20,6 +20,26 @@ class EntityCycler extends Component {
     return Math.floor(Math.random() * Math.floor(max));
   }
   
+  cycleThruText() {
+    const start = this.state.index;
+    //////////////////////////////////////////
+    // Illusion of random of circular order //
+    //////////////////////////////////////////
+    // make a copy of state.text
+    let copy = [...this.state.text];
+    // create new array from start index until end of copy
+    let stack = copy.splice(start);
+    // push all items before starting index onto end of stack array
+    stack.push(...copy);
+    stack.reverse();
+    ///////////////////////////////////////////////////////////////
+
+    while(stack.length) {
+      
+    }
+    
+  }
+  
   currentText(specificIndex) {
     const index = specificIndex || this.state.index;
 
