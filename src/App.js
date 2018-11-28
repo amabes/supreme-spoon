@@ -26,10 +26,8 @@ class App extends Component {
   
   nextPage() {
     this.setState(state => ({
-      index: this.state.index += 1
+      index: this.state.index + 1
     }));
-    
-    console.log(this.state.index);
   }
 
   render() {

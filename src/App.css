@@ -1,8 +1,27 @@
+*:focus {
+  outline: 0;
+}
+
 a {
+  color: black;
+  border-bottom: 2px black solid;
   display: inline-block;
+  text-decoration: none;
+}
+
+.next-page {
+  border: 0;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+}
+
+.next-page:hover {
+  color: red;
 }
 
 .App {
+  font-size: 2rem;
   text-align: center;
 }
 
