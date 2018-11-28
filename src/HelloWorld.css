@@ -1,6 +1,12 @@
 .HelloWorld {
-  font-size: 5rem;
+  font-size: 2rem;
   text-align: center;
+}
+
+@media (min-width: 992px) {
+  .HelloWorld {
+    font-size: 5rem;
+  }
 }
 
 a {
@@ -16,7 +22,13 @@ a {
   font-size: inherit;
   padding: 0;
   position: relative;
-  margin-right: -5rem;
+  margin-right: -2rem;
+}
+
+@media (min-width: 992px) {
+  .next-page {
+    margin-right: -5rem;
+  }
 }
 
 .next-page:hover {
