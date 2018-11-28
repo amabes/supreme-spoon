@@ -5,7 +5,6 @@ class EntityCycler extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      index: 0,
       text: [
         'Apps',
         'Websites',
@@ -13,19 +12,18 @@ class EntityCycler extends Component {
         'Landing Pages'
       ]
     }
+
+    this.state.index = this.getRandomInt(this.state.text.length);
   }
   
   getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
-
   
   currentText() {
-    const index = this.state.index || this.getRandomInt(this.state.text.length); 
-
     return (
       <Fragment>
-        {this.state.text[index]}
+        {this.state.text[this.state.index]}
       </Fragment>
     )
   }
