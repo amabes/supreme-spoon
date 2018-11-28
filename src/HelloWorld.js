@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import EntityCycler from './EntityCycler';
-import './One.css';
+import './HelloWorld.css';
 
-class One extends Component {
+class HelloWorld extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,11 +39,11 @@ class One extends Component {
 
   render() {
     return (
-      <div className="One">
+      <div className="HelloWorld">
         {this.currentText()} <button className="next-page" onClick={this.nextPage}>...</button>
       </div>
     );
   }
 }
 
-export default One;
+export default HelloWorld;
