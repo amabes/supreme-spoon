@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-// import logo from './logo.svg';
+import EntityCycler from './EntityCycler';
 import One from './One';
 import './App.css';
 
@@ -10,7 +10,7 @@ class App extends Component {
       index: 0,
       text: {
         0: this.zero(),
-        1: 'and care about user experience'
+        1: 'tbd'
       }
     };
     this.nextPage = this.nextPage.bind(this);
@@ -19,7 +19,11 @@ class App extends Component {
   zero() {
     return (
       <Fragment>
-        I love building things <a href="https://google.com">test</a>
+        I ♥︎ building
+        <EntityCycler />
+        and care about
+        <br />
+        user experience
       </Fragment>
     );
   }
