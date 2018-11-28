@@ -16,13 +16,33 @@ class EntityCycler extends Component {
   }
   
   componentDidMount() {
-    console.log(this.state.text);
+    // Wait a sec
+    setTimeout(() => {
+      // setInterval that increases index every second
+      this.timerID = setInterval(() => {
+        this.increaseIndex();
+        
+        if (this.state.text.length - 1 === this.state.index) {
+          clearInterval(this.timerID);
+        }
+      }, 1000);
+    }, 1500)
+  }
+  
+  componentWillUnmount() {
+    clearInterval(this.timerID);
   }
   
   getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   }
   
+  increaseIndex() {
+    this.setState({
+      index: this.state.index + 1
+    });
+  }
+
   shuffleText(text) {
     const start = this.getRandomInt(text.length);
     //////////////////////////////////////////
@@ -34,15 +54,14 @@ class EntityCycler extends Component {
     let stack = copy.splice(start);
     // push all items before starting index onto end of stack array
     stack.push(...copy);
+    // restore original order
     stack.reverse();
     ///////////////////////////////////////////////////////////////
     return stack;
   }
   
   currentText(specificIndex) {
-    const index = specificIndex || this.state.index;
-
-    return this.state.text[index];
+    return this.state.text[this.state.index];
   }
 
   render() {
