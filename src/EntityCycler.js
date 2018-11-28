@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import './EntityCycler.css';
 
 class EntityCycler extends Component {
@@ -20,12 +20,10 @@ class EntityCycler extends Component {
     return Math.floor(Math.random() * Math.floor(max));
   }
   
-  currentText() {
-    return (
-      <Fragment>
-        {this.state.text[this.state.index]}
-      </Fragment>
-    )
+  currentText(specificIndex) {
+    const index = specificIndex || this.state.index;
+
+    return this.state.text[index];
   }
 
   render() {
