@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Cookies from 'js-cookie';
 import './CookieBanner.css';
 
 class CookieBanner extends Component {
@@ -6,19 +7,33 @@ class CookieBanner extends Component {
     super(props);
 
     this.state = {
-      showCookieBanner: (props.showCookieBanner) ? 'is-visible' : ''
+      showCookieBanner: (Cookies.get('GDRP') === undefined) ? 'is-visible' : ''
     }
 
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    this.props.handleClick(this);
+    Cookies.set('GDRP', 'accepted');
+
+    this.setState(state => ({
+      showCookieBanner: false
+    }));
+  }
+
+  activeClasses(){
+    const classes = ['CookieBanner'];
+
+    if (this.state.showCookieBanner) {
+      classes.push('is-visible')
+    }
+
+    return classes.join(' ');
   }
 
   render() {
     return (
-      <div className={"CookieBanner " + this.state.showCookieBanner}>
+      <div className={this.activeClasses()}>
         <div className="constrain">
           <div className="sosumi-main">
             <div className="sosumi-content">
